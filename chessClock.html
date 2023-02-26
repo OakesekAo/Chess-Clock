@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chess Clock</title>
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .clock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        width: 400px;
+        border: 10px solid #000;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 3em;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      button {
+        font-size: 1em;
+        padding: 10px;
+        margin: 0 10px;
+      }
+
+      button.active {
+        background-color: #33cc33;
+        color: #fff;
+      }
+
+      input[type="number"] {
+        font-size: 1em;
+        padding: 10px;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Chess Clock</h1>
+    <div class="clock-container">
+      <div class="clock" id="clock">
+        10:00
+      </div>
+      <div class="button-container">
+        <button id="start-button">Start</button>
+        <button id="stop-button">Stop</button>
+        <button id="increment-button">Increment time</button>
+        <button id="delay-button">Delay time</button>
+        <input type="number" id="time-input" min="1" max="120" value="10">
+      </div>
+    </div>
+
+    <script>
+      const clock = document.getElementById('clock');
+      const startButton = document.getElementById('start-button');
+      const stopButton = document.getElementById('stop-button');
+      const incrementButton = document.getElementById('increment-button');
+      const delayButton = document.getElementById('delay-button');
+      const timeInput = document.getElementById('time-input');
+
+      let time1 = parseInt(timeInput.value) * 60 || 600;
+      let time2 = parseInt(timeInput.value) * 60 || 600;
+      let activeTimer = 1;
+      let intervalId;
+
+      function drawClock(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        clock.textContent = `${minutes < 10 ? '0' + minutes : minutes}:${
+          seconds < 10 ? '0' + seconds : seconds
+        }`;
+      }
+
+      function startTimer() {
+        intervalId = setInterval(() => {
+          if (activeTimer === 1) {
+            time1--;
+            drawClock(time1);
+            if (time1 === 0) {
+              stopTimer();
+              alert('Player 2 wins!');
+            }
+          } else if (activeTimer === 2) {
+            time2--;
+            drawClock(time2);
+            if (time2 === 0) {
+              stopTimer();
+              alert('Player 1 wins!');
+            }
+          }
+        }, 1000);
+        startButton.disabled = true;
+      }
+
+      function stopTimer() {
+        clearInterval(intervalId);
+        startButton.disabled = false;
+      }
+
+      startButton.addEventListener('click', () => {
+        time1 = parseInt(timeInput.value) * 60 || 600;
+        time2 = parseInt(timeInput.value) * 60 || 600;
+activeTimer = 1;
+drawClock(time1);
+startTimer();
+});
+
+  stopButton.addEventListener('click', () => {
+    stopTimer();
+  });
+
+  incrementButton.addEventListener('click', () => {
+    if (activeTimer === 1) {
+      time1 += 60;
+      drawClock(time1);
+    } else if (activeTimer === 2) {
+      time2 += 60;
+      drawClock(time2);
+    }
+  });
+
+  delayButton.addEventListener('click', () => {
+    if (activeTimer === 1) {
+      time1 -= 60;
+      if (time1 < 0) {
+        time1 = 0;
+      }
+      drawClock(time1);
+    } else if (activeTimer === 2) {
+      time2 -= 60;
+      if (time2 < 0) {
+        time2 = 0;
+      }
+      drawClock(time2);
+    }
+  });
+
+  clock.addEventListener('click', () => {
+    if (activeTimer === 1) {
+      activeTimer = 2;
+      clock.classList.remove('active');
+      setTimeout(() => {
+        clock.classList.add('active');
+      }, 100);
+    } else if (activeTimer === 2) {
+      activeTimer = 1;
+      clock.classList.remove('active');
+      setTimeout(() => {
+        clock.classList.add('active');
+      }, 100);
+    }
+  });
+</script>
+  </body>
+</html>
