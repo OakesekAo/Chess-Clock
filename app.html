@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Andrew Oakes</title>
+    <title>Chess Clock: A Coding Project by Andrew Oakes</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <!-- ==== Nav Section === -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img/TreeLogo.png" class="d-inline-block align-text-center" width="30" height="24"> App Name</a>
+            <a class="navbar-brand" href="#"><img style="mix-blend-mode:multiply" src="img/TreeLogo.png" class="d-inline-block align-text-center" width="30" height="24"> Chess Clock</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -33,16 +33,13 @@
                         <a class="nav-link" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">The App</a>
+                        <a class="nav-link active" aria-current="page" href="#">Chess Clock</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="code.html">The Code</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/OakesekAo/Chess-Clock">Git Repo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">About</a>
+                        <a class="nav-link" target="_blank" href="https://oakesa.netlify.app/">About</a>
                     </li>
                 </ul>
             </div>
@@ -51,18 +48,46 @@
     <!-- ==== Main Section === -->
     <main class="flex-shrink-0">
         <div class="container">
-
+            <h1 class="text-center">Chess Clock</h1>
+            <h4 class="text-center" id="winner-message">White goes first</h4>
+            <div class="row">
+                <div class="col-sm d-flex justify-content-center">
+                    <div class="switch-button" id="switch-button1">
+                        <div class="clock active" id="clock1">
+                            <span id="clock1-time"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm d-flex justify-content-center">
+                    <div class="switch-button" id="switch-button2">
+                        <div class="clock" id="clock2">
+                            <span id="clock2-time"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="clock-container"></div>
+    
+            <div class="row">
+                <div class="button-container">
+                    <button class="btn-outline-primary btn-lg px-4 me-md-2 m-3" id="start-button">Start</button>
+                    <button class="btn-outline-primary btn-lg px-4 me-md-2 m-3" id="reset-button">Reset</button>
+                    <input class="form-control w-25" type="number" id="time-input" min="1" max="120" value="10" size="5">
+                </div>
+            </div>
         </div>
     </main>
+    
     <!-- ==== Footer Section === -->
     <footer class="footer mt-auto py-3">
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
                 <div class="col d-flex align-items-center order-last order-lg-first text-light">
-                    <div><span class="text-muted">&copy;2022</span> Andrew Oakes | oakes.a@live.com</div>
+                    <div><span class="text-black">&copy;2022</span> Andrew Oakes | oakes.a@live.com</div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                    <img src="img/AndrewLight.png" alt="Andrew Oakes Logo" height="24">
+                    <img style="mix-blend-mode:multiply" src="img/AndrewLight.png" alt="Andrew Oakes Logo" height="24">
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">

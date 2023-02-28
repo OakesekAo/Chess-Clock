@@ -1,9 +1,54 @@
 :root{
     --primary-color: #4CA1AF;
     --secondary-color: #995e06;
-    --dark-color: #2C3E50;
+    --dark-color: #5982aa;
     --white-color: #f1f3ed;
 }
+
+.clock-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 400px;
+    border: 10px solid #000;
+    border-radius: 5px;
+    background-color: #888686;
+    font-size: 3em;
+    color: #000;
+  }
+  
+  .clock.active {
+    background-color: #33cc33;
+    color: #fff;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  
+  
+  button.active {
+    background-color: #33cc33;
+    color: #fff;
+  }
+  
+  input[type="number"] {
+    font-size: 1em;
+    padding: 10px;
+    margin: 0 10px;
+  }
+  
 
 body{
     color: var(--dark-color);
