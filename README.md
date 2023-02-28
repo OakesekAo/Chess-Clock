@@ -4,7 +4,7 @@
 ## Description
 Chess Clock is a web-based application that allows two players to play chess using a digital clock to track their time. It is built with HTML, CSS, and JavaScript.
 
-[Visit the live site here](https://chessclocked.netlify.app/)
+[Visit the live site here](https://chessclocked.netlify.app/){:target="_blank"}
 
 ## Features
 
