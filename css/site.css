@@ -5,6 +5,13 @@
     --white-color: #f1f3ed;
 }
 
+@media (max-width: 991px) {
+    #clock1 {
+      transform: rotate(180deg);
+    }
+  }
+  
+
 .clock-container {
     display: flex;
     justify-content: space-around;
